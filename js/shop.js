@@ -74,9 +74,11 @@ var total = 0;
 function buy(id) {
     // 1. Loop for to the array products to get the item to add to cart
 
-
-
+    let productToAdd = products.find(prod => prod.id === id);
     // 2. Add found product to the cartList array
+    cartList.push(productToAdd);
+    console.log(cartList);
+
 }
 
 // Exercise 2
