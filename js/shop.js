@@ -115,12 +115,28 @@ function generateCart() {
         }
     })
     console.log(cart);
+    applyPromotionsCart();
 
 }
 
 // Exercise 5
 function applyPromotionsCart() {
     // Apply promotions to each item in the array "cart"
+    let subtotalWithDiscount = 0;
+
+    cart.forEach((product) => {
+        if (product.id == 1 && product.quantity >= 3) {
+            product.price = 10;
+            subtotalWithDiscount += product.quantity * product.price;
+
+        }
+        if (product.id == 3 && product.quantity >= 10) {
+            product.price -= (2 / 3);
+            subtotalWithDiscount += product.quantity * product.price;
+        }
+    })
+
+
 }
 
 // Exercise 6
