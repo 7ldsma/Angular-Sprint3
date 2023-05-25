@@ -77,7 +77,7 @@ function buy(id) {
     let productToAdd = products.find(prod => prod.id === id);
     // 2. Add found product to the cartList array
     cartList.push(productToAdd);
-    console.log(cartList);
+    calculateTotal();
 
 }
 
@@ -93,7 +93,6 @@ function calculateTotal() {
     for (let i = 0; i < cartList.length; i++) {
         total += cartList[i].price;
     }
-    console.log(total);
 
     // cartList.forEach((product) => {
     //     total += cartList[i].price;
@@ -116,6 +115,8 @@ function generateCart() {
     })
     console.log(cart);
     applyPromotionsCart();
+    printCart();
+
 
 }
 
@@ -142,7 +143,30 @@ function applyPromotionsCart() {
 // Exercise 6
 function printCart() {
     // Fill the shopping cart modal manipulating the shopping cart dom
-}
+    document.querySelector(".table");
+
+    const tblbody = document.createElement("tbody");
+
+
+    cart.forEach((product) => {
+        // document.createElement("tbody");
+        // for (let i = 0; i < 4; i++) {
+        const row = document.createElement("tr");
+
+        for (let j = 0; j < 4; j++) {
+            const cell = document.createElement("td");
+            const cellText = document.createTextNode(`cell in column ${j}`);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
+
+        }
+        tblbody.appendChild(row);
+
+    });
+
+    document.getElementById("total_price").innerHTML = total;
+
+};
 
 
 // ** Nivell II **
