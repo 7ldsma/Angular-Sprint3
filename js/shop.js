@@ -123,18 +123,19 @@ function generateCart() {
 // Exercise 5
 function applyPromotionsCart() {
     // Apply promotions to each item in the array "cart"
-    let subtotalWithDiscount = 0;
 
     cart.forEach((product) => {
+
         if (product.id == 1 && product.quantity >= 3) {
             product.price = 10;
-            subtotalWithDiscount += product.quantity * product.price;
 
         }
         if (product.id == 3 && product.quantity >= 10) {
             product.price -= (2 / 3);
-            subtotalWithDiscount += product.quantity * product.price;
         }
+
+        product.subtotalWithDiscount = (product.quantity * product.price);
+
     })
 
 
@@ -143,26 +144,23 @@ function applyPromotionsCart() {
 // Exercise 6
 function printCart() {
     // Fill the shopping cart modal manipulating the shopping cart dom
-    document.querySelector(".table");
 
-    const tblbody = document.createElement("tbody");
-
+    let table = "";
 
     cart.forEach((product) => {
         // document.createElement("tbody");
         // for (let i = 0; i < 4; i++) {
-        const row = document.createElement("tr");
-
-        for (let j = 0; j < 4; j++) {
-            const cell = document.createElement("td");
-            const cellText = document.createTextNode(`cell in column ${j}`);
-            cell.appendChild(cellText);
-            row.appendChild(cell);
-
-        }
-        tblbody.appendChild(row);
+        table += `<tr>
+                <th>${product.name}</th>
+                <td>${product.price}</td>
+                <td>${product.quantity}</td>
+                <td>${product.subtotalWithDiscount}</td>
+                </tr>`;
 
     });
+    document.getElementById("cart_list").innerHTML = table;
+
+    console.log(table);
 
     document.getElementById("total_price").innerHTML = total;
 
