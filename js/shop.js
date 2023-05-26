@@ -160,8 +160,6 @@ function printCart() {
     });
     document.getElementById("cart_list").innerHTML = table;
 
-    console.log(table);
-
     document.getElementById("total_price").innerHTML = total;
 
 };
@@ -180,6 +178,17 @@ function addToCart(id) {
 function removeFromCart(id) {
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cartList array
+
+    cart.forEach((product) => {
+        if (!cart.includes(product)) {
+            product.quantity = 1;
+            cart.push(product);
+        } else {
+            product.quantity += 1;
+        }
+    })
+
+
 }
 
 function open_modal() {
