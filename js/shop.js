@@ -77,19 +77,25 @@ function buy(id) {
     let productToAdd = products.find(prod => prod.id === id);
     // 2. Add found product to the cartList array
     cartList.push(productToAdd);
-    calculateTotal();
 
 }
 
 // Exercise 2
 function cleanCart() {
 
-    cartList.splice(0, cartList.length);
+    cartList.length = 0;
+    cart.length = 0;
+    calculateTotal();
+
+    printCart();
+
 }
 
 // Exercise 3
 function calculateTotal() {
     // Calculate total price of the cart using the "cartList" array
+
+    total = 0;
     for (let i = 0; i < cartList.length; i++) {
         total += cartList[i].price;
     }
@@ -113,10 +119,8 @@ function generateCart() {
             product.quantity += 1;
         }
     })
-    console.log(cart);
     applyPromotionsCart();
     printCart();
-
 
 }
 
@@ -124,20 +128,20 @@ function generateCart() {
 function applyPromotionsCart() {
     // Apply promotions to each item in the array "cart"
 
+    let totalPrice = 0;
     cart.forEach((product) => {
 
         if (product.id == 1 && product.quantity >= 3) {
             product.price = 10;
-
-        }
-        if (product.id == 3 && product.quantity >= 10) {
+        } else if (product.id == 3 && product.quantity >= 10) {
             product.price -= (2 / 3);
         }
 
         product.subtotalWithDiscount = (product.quantity * product.price);
+        totalPrice += product.subtotalWithDiscount;
 
     })
-
+    return totalPrice;
 
 }
 
@@ -155,12 +159,14 @@ function printCart() {
                 <td>${product.price}</td>
                 <td>${product.quantity}</td>
                 <td>${product.subtotalWithDiscount}</td>
+                <td><a id="${product.id}" onclick="removeFromCart(${product.id})"><i class="fas fa-trash"></i></a></td>
+
                 </tr>`;
 
     });
     document.getElementById("cart_list").innerHTML = table;
 
-    document.getElementById("total_price").innerHTML = total;
+    document.getElementById("total_price").innerHTML = applyPromotionsCart();
 
 };
 
@@ -171,22 +177,42 @@ function printCart() {
 function addToCart(id) {
     // Refactor previous code in order to simplify it 
     // 1. Loop for to the array products to get the item to add to cart
+
+    let productToAdd = products.find(prod => prod.id === id);
+
     // 2. Add found product to the cart array or update its quantity in case it has been added previously.
+
+    let existingProduct = cart.find(product => product.id === productToAdd.id);
+
+    if (existingProduct) {
+        existingProduct.quantity += 1;
+    } else {
+        productToAdd.quantity = 1;
+        cart.push(productToAdd);
+    }
+
+    applyPromotionsCart();
+    printCart();
 }
 
 // Exercise 8
 function removeFromCart(id) {
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cartList array
-
-    cart.forEach((product) => {
-        if (!cart.includes(product)) {
-            product.quantity = 1;
-            cart.push(product);
-        } else {
-            product.quantity += 1;
-        }
-    })
+    let product = cart.find(product => product.id === id);
+    if (product.quantity == 1) {
+        cart = cart.filter(product => product.id !== id);
+    } else if (product.id == 1 && product.quantity <= 3) {
+        product.price = 10.5;
+        product.quantity -= 1;
+    } else if (product.id == 3 && product.quantity <= 9) {
+        product.price -= (2 / 3);
+        product.quantity -= 1;
+    } else if (product.quantity > 1) {
+        product.quantity -= 1;
+    }
+    applyPromotionsCart();
+    printCart();
 
 
 }

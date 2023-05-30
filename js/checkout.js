@@ -26,14 +26,13 @@ function validate() {
     // Validate fields entered by the user: name, phone, password, and email
 
 
-    if (fName.value == "") {
+    if (fName.value == "" || fLastN.length < 3) {
         error++;
 
     }
 
-    if (fLastN.value == "") {
+    if (fLastN.value == "" || fLastN.length < 3) {
         error++;
-        errorMessage += errorLastN;
     }
 
 
