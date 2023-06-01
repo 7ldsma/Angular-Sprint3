@@ -60,6 +60,24 @@ var products = [{
             name: 'Toddler Frock',
             price: 9.99,
             type: 'clothes'
+        },
+        {
+            id: 10,
+            name: 'Toddler Frock',
+            price: 9.99,
+            type: 'clothes'
+        },
+        {
+            id: 11,
+            name: 'Toddler Frock',
+            price: 9.99,
+            type: 'clothes'
+        },
+        {
+            id: 12,
+            name: 'Toddler Frock',
+            price: 9.99,
+            type: 'clothes'
         }
     ]
     // Array with products (objects) added directly with push(). Products in this array are repeated.
@@ -143,6 +161,7 @@ function applyPromotionsCart() {
     })
     return totalPrice;
 
+
 }
 
 // Exercise 6
@@ -155,6 +174,7 @@ function printCart() {
         // document.createElement("tbody");
         // for (let i = 0; i < 4; i++) {
         table += `<tr>
+                <th>${product.name}</th>
                 <th>${product.name}</th>
                 <td>${product.price}</td>
                 <td>${product.quantity}</td>
@@ -181,6 +201,7 @@ function addToCart(id) {
     let productToAdd = products.find(prod => prod.id === id);
 
     // 2. Add found product to the cart array or update its quantity in case it has been added previously.
+    let count = 0;
 
     let existingProduct = cart.find(product => product.id === productToAdd.id);
 
@@ -191,26 +212,43 @@ function addToCart(id) {
         cart.push(productToAdd);
     }
 
+    cart.forEach((prod) => {
+        count += prod.quantity;
+    })
+
+    document.getElementById('count_product').innerHTML = count;
     applyPromotionsCart();
-    printCart();
+
 }
 
 // Exercise 8
 function removeFromCart(id) {
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cartList array
+
+    let count = 0;
+
+    console.log(cart.length);
+
     let product = cart.find(product => product.id === id);
     if (product.quantity == 1) {
         cart = cart.filter(product => product.id !== id);
     } else if (product.id == 1 && product.quantity <= 3) {
         product.price = 10.5;
         product.quantity -= 1;
-    } else if (product.id == 3 && product.quantity <= 9) {
+    } else if (product.id == 3 && product.quantity <= 10) {
         product.price -= (2 / 3);
         product.quantity -= 1;
     } else if (product.quantity > 1) {
         product.quantity -= 1;
+        count -= 1;
     }
+
+    cart.forEach((prod) => {
+        count += prod.quantity;
+    })
+
+    document.getElementById('count_product').innerHTML = count;
     applyPromotionsCart();
     printCart();
 

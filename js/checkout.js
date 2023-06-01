@@ -1,4 +1,15 @@
 // Exercise 6
+
+function addInvalidClass(element, error) { // modificamos el css si es true/false
+    if (error) {
+        element.classList.add("is-invalid");
+    } else {
+        element.classList.remove("is-invalid");
+        element.classList.add("is-valid");
+    }
+};
+
+
 function validate() {
     var error = 0;
     // Get the input fields
@@ -12,6 +23,7 @@ function validate() {
     var fAddress = document.getElementById("fAddress");
 
     // Get the error elements
+
     var errorName = document.getElementById("errorName");
     var errorLastN = document.getElementById("errorLastN");
 
@@ -21,54 +33,98 @@ function validate() {
     var errorAddress = document.getElementById("errorAddress");
     var errorPhone = document.getElementById("errorPhone");
 
-
+    console.log(errorName);
 
     // Validate fields entered by the user: name, phone, password, and email
 
+    // NOMBRE Y APELLIDO CON SOLO LETRAS
 
-    if (fName.value == "" || fLastN.length < 3) {
+    var nameReg = /^[A-Za-z]+$/;
+
+
+    if (fName.length < 3 || !fName.value.match(nameReg) || fName === "") {
+        addInvalidClass(fName, true);
         error++;
-
+    } else {
+        addInvalidClass(fName, false)
     }
 
-    if (fLastN.value == "" || fLastN.length < 3) {
+    // APELLIDO 
+
+
+    if (fLastN.length < 3 || !fLastN.value.match(nameReg) || fLastN === "") {
+        addInvalidClass(fLastN, true);
         error++;
+    } else {
+        addInvalidClass(fLastN, false)
     }
 
 
 
-    if (fEmail.value == "") {
-        error++;
-        errorMessage += errorEmail;
 
+    // // EMAIL
+
+
+
+    var emailReg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if (fEmail.length < 3 || !fEmail.value.match(emailReg) || fEmail === "") {
+        addInvalidClass(fEmail, true);
+        error++;
+    } else {
+        addInvalidClass(fEmail, false)
     }
 
 
-    if (fPassword.value == "") {
-        error++;
-        errorMessage += errorPassword;
 
+    // CONTRASEÑA
+
+    var passwordReg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,8}$/;
+
+
+    if (fPassword.length < 3 || !fPassword.value.match(passwordReg) || fPassword === "") {
+        addInvalidClass(fPassword, true);
+        error++;
+    } else {
+        addInvalidClass(fPassword, false)
     }
 
-    if (fPhone.value == "") {
-        error++;
-        errorMessage += errorPhone;
 
+    // TELÉFONO
+
+    var regTelefono = /^\d{9}$/;
+
+    if (fPhone.length < 3 || !fPhone.value.match(regTelefono) || fPhone === "") {
+        addInvalidClass(fPhone, true);
+        error++;
+    } else {
+        addInvalidClass(fPhone, false)
     }
 
-    if (fAddress.value == "") {
+    // // DIRECCIÓN.
+
+
+    if (fAddress.length < 3 || fAddress === "") {
+        addInvalidClass(fAddress, true);
         error++;
-        errorMessage += errorAddress;
+    } else {
+        addInvalidClass(fAddress, false)
     }
 
-    console.log(error);
-    console.log(errorPassword);
 
     if (error > 0) {
-        alert(errorMessage);
+        document.getElementById('checkoutForm').addEventListener("submit", (event) => {
+            event.preventDefault();
+        });
     } else {
         alert("OK");
     }
+
+    // if (error > 0) {
+    //     alert(errorMessage);
+    // } else {
+    //     alert("OK");
+    // }
 
 
 
