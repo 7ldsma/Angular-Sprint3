@@ -1,64 +1,77 @@
 // If you have time, you can move this variable "products" to a json or js file and load the data in this js. It will look more professional
 var products = [{
             id: 1,
-            name: 'cooking oil',
-            price: 10.5,
+            name: 'Half Fold',
+            price: 230,
             type: 'grocery',
             offer: {
                 number: 3,
                 percent: 20
-            }
+            },
+            imageUrl: './images/HFolds.webp',
         },
         {
             id: 2,
-            name: 'Pasta',
-            price: 6.25,
-            type: 'grocery'
+            name: 'Mosaic Color',
+            price: 350,
+            type: 'grocery',
+            imageUrl: './images/Mosaic.webp',
+
         },
         {
             id: 3,
-            name: 'Instant cupcake mixture',
-            price: 5,
+            name: 'Earth Grain',
+            price: 250,
             type: 'grocery',
             offer: {
                 number: 10,
                 percent: 30
-            }
+            },
+            imageUrl: './images/Grain.webp',
+
         },
         {
             id: 4,
-            name: 'All-in-one',
-            price: 260,
-            type: 'beauty'
+            name: 'Folds',
+            price: 300,
+            type: 'beauty',
+            imageUrl: './images/Folds.webp',
+
         },
         {
             id: 5,
-            name: 'Zero Make-up Kit',
-            price: 20.5,
-            type: 'beauty'
+            name: 'Pearl',
+            price: 260,
+            type: 'beauty',
+            imageUrl: './images/Pearl.webp',
+
         },
         {
             id: 6,
-            name: 'Lip Tints',
-            price: 12.75,
-            type: 'beauty'
+            name: 'Earth',
+            price: 220,
+            type: 'beauty',
+            imageUrl: './images/Earth.webp',
+
         },
         {
             id: 7,
-            name: 'Lawn Dress',
-            price: 15,
-            type: 'clothes'
+            name: 'Torus',
+            price: 370,
+            type: 'clothes',
+            imageUrl: './images/Torus.webp',
+
         },
         {
             id: 8,
             name: 'Lawn-Chiffon Combo',
-            price: 19.99,
+            price: 260,
             type: 'clothes'
         },
         {
             id: 9,
             name: 'Toddler Frock',
-            price: 9.99,
+            price: 480,
             type: 'clothes'
         },
         {
@@ -150,7 +163,7 @@ function applyPromotionsCart() {
     cart.forEach((product) => {
 
         if (product.id == 1 && product.quantity >= 3) {
-            product.price = 10;
+            product.price = 200;
         } else if (product.id == 3 && product.quantity >= 10) {
             product.price -= (2 / 3);
         }
@@ -174,7 +187,7 @@ function printCart() {
         // document.createElement("tbody");
         // for (let i = 0; i < 4; i++) {
         table += `<tr>
-                <th>${product.name}</th>
+                <th><img src="${product.imageUrl}" alt="${product.name}" width="150" height="150"></th>
                 <th>${product.name}</th>
                 <td>${product.price}</td>
                 <td>${product.quantity}</td>
