@@ -3,7 +3,7 @@ var products = [{
             id: 1,
             name: 'Half Fold',
             price: 230,
-            type: 'grocery',
+            type: 'Featured',
             offer: {
                 number: 3,
                 percent: 20
@@ -14,7 +14,7 @@ var products = [{
             id: 2,
             name: 'Mosaic Color',
             price: 350,
-            type: 'grocery',
+            type: 'Featured',
             imageUrl: './images/Mosaic.webp',
 
         },
@@ -22,7 +22,7 @@ var products = [{
             id: 3,
             name: 'Earth Grain',
             price: 250,
-            type: 'grocery',
+            type: 'Featured',
             offer: {
                 number: 10,
                 percent: 30
@@ -34,7 +34,7 @@ var products = [{
             id: 4,
             name: 'Folds',
             price: 300,
-            type: 'beauty',
+            type: 'The Collection',
             imageUrl: './images/Folds.webp',
 
         },
@@ -42,7 +42,7 @@ var products = [{
             id: 5,
             name: 'Pearl',
             price: 260,
-            type: 'beauty',
+            type: 'The Collection',
             imageUrl: './images/Pearl.webp',
 
         },
@@ -50,7 +50,7 @@ var products = [{
             id: 6,
             name: 'Earth',
             price: 220,
-            type: 'beauty',
+            type: 'The Collection',
             imageUrl: './images/Earth.webp',
 
         },
@@ -58,21 +58,25 @@ var products = [{
             id: 7,
             name: 'Torus',
             price: 370,
-            type: 'clothes',
+            type: 'The Collection',
             imageUrl: './images/Torus.webp',
 
         },
         {
             id: 8,
-            name: 'Lawn-Chiffon Combo',
+            name: 'Dual',
             price: 260,
-            type: 'clothes'
+            type: 'The Collection',
+            imageUrl: './images/Dual.webp',
+
         },
         {
             id: 9,
-            name: 'Toddler Frock',
+            name: 'Grain Pearl Large',
             price: 480,
-            type: 'clothes'
+            type: 'The Collection',
+            imageUrl: './images/Grainpearl lg.webp',
+
         },
         {
             id: 10,
@@ -114,9 +118,12 @@ function buy(id) {
 // Exercise 2
 function cleanCart() {
 
+    let count = 0;
     cartList.length = 0;
     cart.length = 0;
+
     calculateTotal();
+    document.getElementById('count_product').innerHTML = count;
 
     printCart();
 
