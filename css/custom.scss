@@ -22,6 +22,11 @@ $success: #4a4e69;
     border-color: $success;
 }
 
+.countPill {
+    background-color: $success;
+    color: white;
+}
+
 .btn:hover {
     background-color: $success;
 }
@@ -56,4 +61,8 @@ $success: #4a4e69;
     display: block;
     opacity: 0;
     transition: opacity 1s ease-in-out;
+}
+
+.imggif {
+    max-width: 400px;
 }

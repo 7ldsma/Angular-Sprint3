@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>ShopNow</title>
+    <title>Clat[é] ShopNow</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="images/favico.ico" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="./css/custom.css" rel="stylesheet" type="text/css">
     <!-- Bootstrap icons-->
@@ -21,7 +21,7 @@
     <!-- Navigation-->
     <nav class="navbar py-3 py-lg-0 navbar-light sticky-top navbar-expand-lg navegacion" id="navbar-example2">
         <div class="container d-flex">
-            <a class="navbar-brand fw-bolder" style="color: white;" href="#!">eClaté</a>
+            <a class="navbar-brand fw-bolder brandname" style="color: white;" href="#!">Clat[é]</a>
             <div class="d-flex flex-row order-lg-last align-items-center">
 
                 <button type="button" class="navbar-toggler order-last collapsed" data-bs-toggle="collapse" data-bs-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -30,7 +30,7 @@
                 <ul class="navbar-nav me-3 me-lg-0 d-flex flex-row align-items-center">
                     <li class="dropdown search-dropdown nav-item py-lg-3">
                         <a href="javascript:void(0)" class="btn btn-outline-dark flex-center" type="button" data-bs-toggle="modal" data-bs-target="#cartModal" onclick="open_modal()" data-bs-auto-close="outside">
-                            <i class="fas fa-shopping-cart me-1"></i> Cart <span class="badge ms-1 rounded-pill" id="count_product"></span>
+                            <i class="fas fa-shopping-cart me-1"></i> Cart <span class="badge ms-1 rounded-pill countPill" id="count_product"></span>
                         </a>
 
                         <!-- <div class="text-center"><button type="button" onclick="generateCart()" class="btn btn-outline-dark">Generate cart</button></div> -->
@@ -58,11 +58,14 @@
     </nav>
 
     <!-- Header-->
-    <header class="py-5 head" style="height : 400px;">
+    <header class="py-5 head" style="height : 500px;">
         <div class="container px-4 px-lg-5 my-5">
-            <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">Unique Ceramic Art Pieces</h1>
-                <p class="lead fw-normal text-white-50 mb-0">Handcrafted pottery since 2021</p>
+            <div class="row">
+                <div class="col col-sm-12 col-md-10 col-xl-6 text-start text-white">
+                    <h1 class="display-4 fw-bolder">Where Timeless Artistry Meets Japanese Tradition.</h1>
+                    <p class="lead fw-normal text-white mb-0">Elevate your space with Clat[é]'s enchanting vases. Embrace the essence of elegance, craftsmanship, and cultural heritage.</p>
+                </div>
+
             </div>
         </div>
     </header>
@@ -130,12 +133,14 @@
         </div>
     </section>
     <section class="py-5 info" id="about">
-        <div class="container px-4 px-lg-5 my-5" style="height: 300px;">
-            <div class="row">
-                <div class="col text-center text-white">
-                    <h2>Gaze into the finest ceramic art pieces</h2>
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="row d-flex flex-column flex-md-row">
+                <div class="col col-sm-12 col-md-6 align-self-center text-start text-white">
+                    <p class="lead fw-normal text-white">Our exclusive, limited edition ceramic vases are meticulously handcrafted, following the revered techniques of Japanese pottery. <br> <br>Each masterpiece is a testament to our unwavering commitment to excellence, with every brushstroke
+                        and intricate design reflecting the soul of the artist. <br> <br>From the finest clay selection to the firing process in traditional kilns, we create vases that transcend functionality, transforming into captivating art pieces.</p>
                 </div>
-                <div class="col">
+                <div class="col col-sm-12 col-md-6 justify-content-center align-self-center text-center">
+                    <img class="imggif img-fluid" src="./images/vases.gif" alt="">
                 </div>
             </div>
 
@@ -258,7 +263,8 @@
 
             </div>
         </div>
-        <!-- </section>
+    </section>
+    <!-- </section>
     <section class="pt-5" id="clothes">
         <h2 class="text-center"><i class="fas fa-tshirt pe-3"></i>Clothes</h2>
         <div class="container px-4 px-lg-5 mt-5">
@@ -298,35 +304,35 @@
         </div>
     </section> -->
 
-        <!-- Footer-->
-        <footer class="py-3" style="background-color: #c9ada7   ;">
-            <div class="container">
-                <p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p>
-            </div>
-        </footer>
+    <!-- Footer-->
+    <footer class="py-5" style="background-color: #c9ada7   ;">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Clat[é] 2023</p>
+        </div>
+    </footer>
 
-        <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-cart-arrow-down"></i> My Cart</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h3 class="text-center bill px-5">Shopping Cart</h3>
-                        <table class="table align-middle">
-                            <thead>
-                                <tr>
-                                    <th scope="col"></th>
-                                    <th scope="col">Product</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Qty.</th>
-                                    <th scope="col">Total <small>(with discount)</small></th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody id="cart_list">
-                                <!--<tr>
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-cart-arrow-down"></i> My Cart</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h3 class="text-center bill px-5">Shopping Cart</h3>
+                    <table class="table align-middle">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Product</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Qty.</th>
+                                <th scope="col">Total <small>(with discount)</small></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="cart_list">
+                            <!--<tr>
                                 <th scope="row" id="name"></th>
                                 <td id="price"></td>
                                 <td id="qty"></td>
@@ -344,27 +350,27 @@
                                 <td>3</td>
                                 <td>$45</td>
                             </tr> -->
-                            </tbody>
-                        </table>
-                        <div class="text-center fs-3">
-                            Total: $<span id="total_price">100</span>
-                        </div>
-                        <div class="text-center">
-                            <a href="checkout.html" class="btn m-3" style="background-color: #9a8c98; color: white;">Checkout</a>
-                            <a href="javascript:void(0)" onclick="cleanCart()" class="btn m-3" style="background-color: #9a8c98; color: white;">Clean Cart</a>
-                        </div>
+                        </tbody>
+                    </table>
+                    <div class="text-center fs-3">
+                        Total: $<span id="total_price">100</span>
+                    </div>
+                    <div class="text-center">
+                        <a href="checkout.html" class="btn m-3" style="background-color: #9a8c98; color: white;">Checkout</a>
+                        <a href="javascript:void(0)" onclick="cleanCart()" class="btn m-3" style="background-color: #9a8c98; color: white;">Clean Cart</a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-        <!-- Core theme JS-->
+    <!-- Core theme JS-->
 
-        <script src="js/shop.js"></script>
-        <script src="js/checkout.js"></script>
+    <script src="js/shop.js"></script>
+    <script src="js/checkout.js"></script>
 </body>
 
 </html>
