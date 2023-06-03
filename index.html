@@ -18,9 +18,9 @@
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="50">
     <!-- Navigation-->
-    <nav class="navbar py-3 py-lg-0 navbar-light navbar-expand-lg" style="background-color: #c9ada7;" id="navbar-example2">
+    <nav class="navbar py-3 py-lg-0 navbar-light sticky-top navbar-expand-lg" style="background-color: #c9ada7;" id="navbar-example2">
         <div class="container d-flex">
-            <a class="navbar-brand" href="#!">ShopNow</a>
+            <a class="navbar-brand fw-bolder" style="color: white;" href="#!">eClaté</a>
             <div class="d-flex flex-row order-lg-last align-items-center">
 
                 <button type="button" class="navbar-toggler order-last collapsed" data-bs-toggle="collapse" data-bs-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -28,8 +28,8 @@
 					 </button>
                 <ul class="navbar-nav me-3 me-lg-0 d-flex flex-row align-items-center">
                     <li class="dropdown search-dropdown nav-item py-lg-3">
-                        <a href="javascript:void(0)" class="btn btn-outline-dark flex-center" type="button" data-bs-toggle="modal" data-bs-target="#cartModal" onclick="open_modal()" data-bs-auto-close="outside">
-                            <i class="fas fa-shopping-cart me-1"></i> Cart <span class="badge bg-dark text-white ms-1 rounded-pill" id="count_product"></span>
+                        <a href="javascript:void(0)" class="btn btn-outline-light flex-center" type="button" data-bs-toggle="modal" data-bs-target="#cartModal" onclick="open_modal()" data-bs-auto-close="outside">
+                            <i class="fas fa-shopping-cart me-1"></i> Cart <span class="badge text-white ms-1 rounded-pill" style="background-color: #4a4e69;" id="count_product"></span>
                         </a>
 
                         <!-- <div class="text-center"><button type="button" onclick="generateCart()" class="btn btn-outline-dark">Generate cart</button></div> -->
@@ -42,14 +42,14 @@
 
                 <ul class="navbar-nav me-auto mb-4 mb-lg-0 ms-lg-5">
                     <li class="nav-item">
-                        <a class="nav-link" href="#grocery"><i class="fas fa-shopping-basket"></i> Grocery</a>
+                        <a class="nav-link" style="color: white;" href="#grocery"> Featured</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#beauty"><i class="fas fa-heart"></i> Beauty</a>
+                        <a class="nav-link" style="color: white;" href="#beauty"> The Collection</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#clothes"><i class="fas fa-tshirt"></i> Clothes</a>
-                    </li>
+                    <!-- <li class="nav-item">
+                            <a class="nav-link" href="#clothes"> Clothes</a>
+                        </li> -->
 
                 </ul>
             </div>
@@ -60,8 +60,8 @@
     <header class="py-5" style="height : 400px; background-color: #c9ada7">
         <div class="container px-4 px-lg-5 my-5">
             <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">IT Academy Shop</h1>
-                <p class="lead fw-normal text-white-50 mb-0">Get up to 50% off Today Only!</p>
+                <h1 class="display-4 fw-bolder">Unique Ceramic Art Pieces</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Handcrafted pottery since 2021</p>
             </div>
         </div>
     </header>
@@ -208,9 +208,9 @@
 
             </div>
         </div>
-    </section>
+        <!-- </section>
     <section class="pt-5" id="clothes">
-        <!-- <h2 class="text-center"><i class="fas fa-tshirt pe-3"></i>Clothes</h2> -->
+        <h2 class="text-center"><i class="fas fa-tshirt pe-3"></i>Clothes</h2>
         <div class="container px-4 px-lg-5 mt-5">
             <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 row-cols-xl-3 justify-content-center">
 
@@ -246,37 +246,37 @@
 
             </div>
         </div>
-    </section>
+    </section> -->
 
-    <!-- Footer-->
-    <footer class="py-3 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p>
-        </div>
-    </footer>
+        <!-- Footer-->
+        <footer class="py-3" style="background-color: #c9ada7   ;">
+            <div class="container">
+                <p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p>
+            </div>
+        </footer>
 
-    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-cart-arrow-down"></i> My Cart</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <h3 class="text-center bill px-5">Shopping Cart</h3>
-                    <table class="table align-middle">
-                        <thead>
-                            <tr>
-                                <th scope="col"></th>
-                                <th scope="col">Product</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Qty.</th>
-                                <th scope="col">Total <small>(with discount)</small></th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody id="cart_list">
-                            <!--<tr>
+        <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-cart-arrow-down"></i> My Cart</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h3 class="text-center bill px-5">Shopping Cart</h3>
+                        <table class="table align-middle">
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">Product</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Qty.</th>
+                                    <th scope="col">Total <small>(with discount)</small></th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="cart_list">
+                                <!--<tr>
                                 <th scope="row" id="name"></th>
                                 <td id="price"></td>
                                 <td id="qty"></td>
@@ -294,26 +294,26 @@
                                 <td>3</td>
                                 <td>$45</td>
                             </tr> -->
-                        </tbody>
-                    </table>
-                    <div class="text-center fs-3">
-                        Total: $<span id="total_price">100</span>
-                    </div>
-                    <div class="text-center">
-                        <a href="checkout.html" class="btn btn-primary m-3">Checkout</a>
-                        <a href="javascript:void(0)" onclick="cleanCart()" class="btn btn-primary m-3">Clean Cart</a>
+                            </tbody>
+                        </table>
+                        <div class="text-center fs-3">
+                            Total: $<span id="total_price">100</span>
+                        </div>
+                        <div class="text-center">
+                            <a href="checkout.html" class="btn m-3" style="background-color: #9a8c98; color: white;">Checkout</a>
+                            <a href="javascript:void(0)" onclick="cleanCart()" class="btn m-3" style="background-color: #9a8c98; color: white;">Clean Cart</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <!-- Core theme JS-->
-    <script src="js/shop.js"></script>
-    <script src="js/checkout.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/shop.js"></script>
+        <script src="js/checkout.js"></script>
 </body>
 
 </html>

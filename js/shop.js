@@ -164,8 +164,10 @@ function applyPromotionsCart() {
 
         if (product.id == 1 && product.quantity >= 3) {
             product.price = 200;
-        } else if (product.id == 3 && product.quantity >= 10) {
-            product.price -= (2 / 3);
+        } else if (product.id == 3 && product.quantity >= 2) {
+            // product.price -= (2 / 3);
+            product.price -= 50;
+
         }
 
         product.subtotalWithDiscount = (product.quantity * product.price);
@@ -247,10 +249,12 @@ function removeFromCart(id) {
     if (product.quantity == 1) {
         cart = cart.filter(product => product.id !== id);
     } else if (product.id == 1 && product.quantity <= 3) {
-        product.price = 10.5;
+        product.price = 230;
         product.quantity -= 1;
     } else if (product.id == 3 && product.quantity <= 10) {
-        product.price -= (2 / 3);
+        // product.price -= (2 / 3);
+        product.price -= 50;
+
         product.quantity -= 1;
     } else if (product.quantity > 1) {
         product.quantity -= 1;
