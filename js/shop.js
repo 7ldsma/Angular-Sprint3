@@ -24,7 +24,7 @@ var products = [{
             price: 250,
             type: 'Featured',
             offer: {
-                number: 10,
+                number: 2,
                 percent: 30
             },
             imageUrl: './images/Grain.webp',
@@ -169,11 +169,11 @@ function applyPromotionsCart() {
     let totalPrice = 0;
     cart.forEach((product) => {
 
-        if (product.id == 1 && product.quantity >= 3) {
-            product.price = 200;
-        } else if (product.id == 3 && product.quantity >= 2) {
+        if (product.id == 1 && product.quantity >= product.offer.number) {
+            product.price -= product.price * (product.offer.percent / 100);
+        } else if (product.id == 3 && product.quantity >= product.offer.number) {
             // product.price -= (2 / 3);
-            product.price -= 50;
+            product.price -= product.price * (product.offer.percent / 100);
 
         }
 
@@ -208,7 +208,7 @@ function printCart() {
     });
     document.getElementById("cart_list").innerHTML = table;
 
-    document.getElementById("total_price").innerHTML = applyPromotionsCart();
+    document.getElementById("total_price").innerHTML = applyPromotionsCart().toFixed(2);
 
 };
 
@@ -255,13 +255,11 @@ function removeFromCart(id) {
     let product = cart.find(product => product.id === id);
     if (product.quantity == 1) {
         cart = cart.filter(product => product.id !== id);
-    } else if (product.id == 1 && product.quantity <= 3) {
-        product.price = 230;
+    } else if (product.id == 1 && product.quantity <= product.offer.number) {
+        product.price = product.price - (product.price * product.offer.percent) / 100;
         product.quantity -= 1;
-    } else if (product.id == 3 && product.quantity <= 10) {
-        // product.price -= (2 / 3);
-        product.price -= 50;
-
+    } else if (product.id == 3 && product.quantity <= product.offer.number) {
+        product.price = product.price - (product.price * product.offer.percent) / 100;
         product.quantity -= 1;
     } else if (product.quantity > 1) {
         product.quantity -= 1;
