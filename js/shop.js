@@ -231,7 +231,7 @@ function addToCart(id) {
         existingProduct.quantity += 1;
     } else {
         productToAdd.quantity = 1;
-        cart.push(productToAdd);
+        cart.push({...productToAdd });
     }
 
     cart.forEach((prod) => {
@@ -239,6 +239,8 @@ function addToCart(id) {
     })
 
     document.getElementById('count_product').innerHTML = count;
+    console.log(products[0].price);
+
     applyPromotionsCart();
 
 }
@@ -250,16 +252,17 @@ function removeFromCart(id) {
 
     let count = 0;
 
-    console.log(cart.length);
+    console.log(products[0].price);
+
 
     let product = cart.find(product => product.id === id);
     if (product.quantity == 1) {
         cart = cart.filter(product => product.id !== id);
     } else if (product.id == 1 && product.quantity <= product.offer.number) {
-        product.price = product.price - (product.price * product.offer.percent) / 100;
+        product.price = products[0].price;
         product.quantity -= 1;
     } else if (product.id == 3 && product.quantity <= product.offer.number) {
-        product.price = product.price - (product.price * product.offer.percent) / 100;
+        product.price = products[2].price;
         product.quantity -= 1;
     } else if (product.quantity > 1) {
         product.quantity -= 1;
